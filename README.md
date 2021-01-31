@@ -7,6 +7,7 @@
 # Welcome to Hexac System Repository !
 
 ![GitHub last commit](https://img.shields.io/github/last-commit/chrapatia/HexacSystem)
+![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/chrapatia/HexacSystem?include_prereleases)
 
 - Hexac System is an operating system made on Cpcdos OSx kernel.
 - Hexac is developped for purpose a new computer experience for the future.
