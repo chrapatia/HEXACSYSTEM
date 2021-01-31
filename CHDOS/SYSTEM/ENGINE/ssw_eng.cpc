@@ -1,0 +1,91 @@
+//
+' MIT License
+'
+' Copyright (c) 2020 Chrapati LAGAHIM and contributors of HEXAC.
+'
+' Permission is hereby granted, free of charge, to any person obtaining a copy
+' of this software and associated documentation files (the "Software"), to deal
+' in the Software without restriction, including without limitation the rights
+' to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+' copies of the Software, and to permit persons to whom the Software is
+' furnished to do so, subject to the following conditions:
+'
+' The above copyright notice and this permission notice shall be included in all
+' copies or substantial portions of the Software.
+'
+' THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+' IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+' FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+' AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+' LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+' OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+' SOFTWARE.
+//
+
+ccp/ /set.level = 4
+
+set/ engine_path = OS/HEXAC/CHDOS/SYSTEM/ENGINE
+
+:command_interface:
+
+set/ prompt = CHEESEDOS/>
+txt/ %prompt% /#R
+set/ /q command
+set/ ver = 1.0
+
+if/ "%command%" == "help" then:
+    txt/
+    txt/===============================================================
+    txt/ cheeseDOS command list :
+    txt/ help      ->       command list
+    // txt/ calc      ->       calculator program
+    txt/ gui       ->       gui programs list
+    txt/ rep       ->       cheeseDOS command prompt engine directory
+    txt/ cls       ->       erase lines from above
+    txt/ exit      ->       exit cheeseDOS and stop computer
+    txt/ restart   ->       restart computer
+    // txt/ settings  ->       cheeseDOS settings
+    // txt/ chos      ->       go to HEXAC
+    txt/===============================================================
+    txt/
+    goto/ command_interface
+end/ if
+
+if/ "%command%" == "calc" then:
+    exe/ & OS/HEXAC/CHDOS/PROG/calc.cpc
+end/ if
+
+if/ "%command%" == "gui" then:
+    exe/ & OS/HEXAC/CHDOS/PROG/gui_prog.cpc
+end/ if
+
+if/ "%command%" == "rep" then:
+    txt/ %engine_path%
+    goto/ command_interface
+end/ if
+
+if/ "%command%" == "cls" then:
+    cls/
+    goto/ command_interface
+end/ if
+
+if/ "%command%" == "exit" then:
+    sys/ /shutdown
+end/ if
+
+if/ "%command%" == "restart" then:
+    sys/ /restart
+end/ if
+
+if/ "%command%" == "settings" then:
+    exe/ & OS/HEXAC/CHDOS/PROG/settings.cpc
+end/ if
+
+if/ "%command%" == "chos" then:
+    // sys/ /debug = 2
+    sys/ /os:HEXAC
+    gui/
+    exe/ & OS/HEXAC/TASKBAR/taskbar.cpc
+end/ if
+
+

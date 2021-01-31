@@ -1,0 +1,78 @@
+//
+' MIT License
+'
+' Copyright (c) 2020 Chrapati LAGAHIM and contributors of HEXAC.
+'
+' Permission is hereby granted, free of charge, to any person obtaining a copy
+' of this software and associated documentation files (the "Software"), to deal
+' in the Software without restriction, including without limitation the rights
+' to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+' copies of the Software, and to permit persons to whom the Software is
+' furnished to do so, subject to the following conditions:
+'
+' The above copyright notice and this permission notice shall be included in all
+' copies or substantial portions of the Software.
+'
+' THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+' IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+' FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+' AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+' LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+' OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+' SOFTWARE.
+//
+
+// This file is the index file for the kernel. Don't delete or rename this.
+// Created on : 11/24/19 | Updated on : 03/21/20
+Declare/ bootSequence() : level(4)
+
+// sys/ /debug = 2
+
+ccp/ /lang = EN
+ccp/ /set.level = 4
+sys/ /DEBUG /menu = 0
+
+// Operating System Informations
+
+set/ os_name = Hexac Sysem
+set/ os_developper = chrapatia
+set/ os_publisher = chrapatia
+set/ os_ver_maj = 1
+set/ os_ver_min = 4
+set/ os_ver_patch = 0
+set/ os_dev_stat = Alpha
+
+// Graphic User Interface Configuration
+
+exe/ & %CPC.REP.KRNL%/CONFIG/ENV_GUI/env_gui.cpc
+set/ SCR_BIT = 24
+sys/ /os:HEXAC
+cls/
+txt/ Starting HEXAC...
+ccp/ /pause:3000
+/F: bootSequence()
+
+// Boot Sequence
+
+function/ bootSequence()
+    ccp/ /set.level = 1
+    @#BOOT_GET_INFORMATION_SETUP ouvrir/ OS/HEXAC/SYSTEM/SETUP/info.cfg
+
+    if/ "%BOOT_GET_INFORMATION_SETUP%" == "True" then:
+        @#SCREEN_RESOLUTION ouvrir/ OS/HEXAC/SYSTEM/CONFIG/SCR_RES/config.cfg
+        set/ SCR_RES = %SCREEN_RESOLUTION%
+        set/ SCR_IMG_MODE = 2
+        @#FOND ouvrir/ OS/HEXAC/SYSTEM/CONFIG/BACKGRD/config.cfg
+        set/ SCR_IMG = %FOND%
+        iug/
+        // exe/ & OS/HEXAC/SYS_APPS/LOGIN/login.cpc
+        exe/ & OS/HEXAC/UI/TASKBAR/taskbar.cpc
+    else:
+        set/ SCR_RES = 1024x768
+        set/ SCR_IMG = OS/HEXAC/SYSTEM/SETUP/BACKGRD/FSTSTP.png
+        iug/
+        exe/ & OS/HEXAC/SYSTEM/SETUP/APP/welcome.cpc
+    end/ if
+end/ function
+
+

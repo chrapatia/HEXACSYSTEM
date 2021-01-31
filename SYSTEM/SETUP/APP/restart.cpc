@@ -1,0 +1,83 @@
+//
+' MIT License
+'
+' Copyright (c) 2020 Chrapati LAGAHIM and contributors of HEXAC.
+'
+' Permission is hereby granted, free of charge, to any person obtaining a copy
+' of this software and associated documentation files (the "Software"), to deal
+' in the Software without restriction, including without limitation the rights
+' to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+' copies of the Software, and to permit persons to whom the Software is
+' furnished to do so, subject to the following conditions:
+'
+' The above copyright notice and this permission notice shall be included in all
+' copies or substantial portions of the Software.
+'
+' THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+' IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+' FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+' AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+' LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+' OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+' SOFTWARE.
+//
+
+window/ restartWindow
+    .title = "Restart HEXAC"
+    .parameters = "TYPE:0"
+    .px = "312"
+    .py = "234"
+    .sx = "400"
+    .sy = "300"
+    .WindowColor = "000,019,209"
+    .BackColor = "198,198,198"
+    .TitleColor = "255,255,255"
+    .ImgTitre = ""
+    .Icon = "OS/HEXAC/SYSTEM/SETUP/APP/GRAPH/icon.png"
+    @#restartwindow_ref create/
+end/ window
+
+textebloc/ restartMessage
+    .handle = "%restartwindow_ref%"
+    .parameters = "MODIF:0 MULTILINES:0"
+    .px = "50"
+    .py = "140"
+    .sx = "300"
+    .sy = "20"
+    .text = "The system will be restart."
+    .TextColor = "000,000,000"
+    create/
+end/ textebloc
+
+button/ OK_button
+    .handle = "%restartwindow_ref%"
+    .parameters = "IMGAUTO:0"
+    .px = "140"
+    .py = "200"
+    .sx = "140"
+    .sy = "30"
+    .text = "OK"
+    .BackColor = "198,198,198"
+    .TextColor = "000,000,000"
+    .event = "%_exe_path_%=Click"
+    create/
+end/ button
+
+function/ OK_button.Click()
+    gui/ /console
+    cls/
+    txt/ OK
+    txt/ System_Processus = Restarting HEXAC
+    txt/ Exit Setup...
+    txt/ HEXAC restarting...
+    ccp/ /pause:3000
+    supprimer/ OS/HEXAC/SYSTEM/SETUP/info.cfg
+    txt/ Saving user informations...
+    ccp/ /pause:3000
+    cmd/ /thread ecrire/ /BIN OS/HEXAC/SYSTEM/SETUP/info.cfg = True
+    txt/ The computer will be restart. Please Wait...
+    ccp/ /pause:3000
+    sys/ /redemarrer
+end/ function
+
+

@@ -1,0 +1,64 @@
+//
+' MIT License
+'
+' Copyright (c) 2020 Chrapati LAGAHIM and contributors of HEXAC.
+'
+' Permission is hereby granted, free of charge, to any person obtaining a copy
+' of this software and associated documentation files (the "Software"), to deal
+' in the Software without restriction, including without limitation the rights
+' to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+' copies of the Software, and to permit persons to whom the Software is
+' furnished to do so, subject to the following conditions:
+'
+' The above copyright notice and this permission notice shall be included in all
+' copies or substantial portions of the Software.
+'
+' THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+' IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+' FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+' AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+' LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+' OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+' SOFTWARE.
+//
+
+cls/
+txt/ cheeseDOS GUI programs.
+txt/ Here is a panel of applications to run in GUI mode with cheeseDOS. If you execute one of the programs, you leave cheeseDOS and switch on HEXAC interface with running application. For showing command list, tape gui help.
+
+:gui_prompt:
+set/ prompt_gui_prog = CHEESEDOS/GUI_PROG/>
+
+set/ /q program_choice
+
+txt/ %prompt_gui_prog% /#R
+
+if/ "%program_choice%" == "gui help" then:
+    txt/ 
+    txt/ ===================================================
+    txt/ calculator     -> HEXAC calculator
+    txt/ notepad        -> HEXAC notepad
+    txt/ web            -> HEXAC SuperSearch Web Browser
+    txt/ ===================================================
+    txt/
+    txt/ Powered by %os_name% %os_dev_stat% %os_ver_maj%.%os_ver_min%.%os_ver_patch%
+end/ if
+
+if/ "%program_choice%" == "calculator" then:
+    gui/
+    exe/ & OS/HEXAC/SYS_APPS/CALC/calc.cpc
+end/ if
+
+if/ "%program_choice%" == "notepad" then:
+    gui/
+    exe/ & OS/HEXAC/SYS_APPS/NOTEPAD/notepad.cpc
+end/ if
+
+if/ "%program_choice%" == "web" then:
+    gui/
+    exe/ & OS/HEXAC/SYS_APPS/WEB/web.cpc
+end/ if
+
+goto/ gui_prompt
+
+

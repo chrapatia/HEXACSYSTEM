@@ -1,0 +1,166 @@
+//
+' MIT License
+'
+' Copyright (c) 2020 Chrapati LAGAHIM and contributors of HEXAC.
+'
+' Permission is hereby granted, free of charge, to any person obtaining a copy
+' of this software and associated documentation files (the "Software"), to deal
+' in the Software without restriction, including without limitation the rights
+' to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+' copies of the Software, and to permit persons to whom the Software is
+' furnished to do so, subject to the following conditions:
+'
+' The above copyright notice and this permission notice shall be included in all
+' copies or substantial portions of the Software.
+'
+' THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+' IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+' FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+' AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+' LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+' OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+' SOFTWARE.
+//
+
+// HEXAC login
+
+// sys/ /debug = 2
+
+set/ sizex = 800
+set/ sizey = 600
+
+set/ posx = /C(%CPC.SCR.X% / 2) - (%sizex% / 2)
+
+set/ posy = /C(%CPC.SCR.Y% / 2) - (%sizey% / 2)
+
+window/ loginWindow
+    .title = "Login"
+    .parametres = "TYPE:0"
+    .px = "%posx%"
+    .py = "%posy%"
+    .sx = "%sizex%"
+    .sy = "%sizey%"
+    .WindowColor = "000,000,000"
+    .BackColor = "198,198,198"
+    .TitleColor = "255,255,255"
+    .ImgTitre = "OS/HEXAC/UI/GRAPHICS/GUI/IMG_WIN.PNG"
+    .Icon = "OS/HEXAC/UI/GRAPHICS/GUI/ICO_DEF.PNG"
+    @#loginWdwref create/
+end/ window
+
+picturebox/ backgroundWindow
+    .handle = "%loginWdwref%"
+    .parametres = "IMGAUTO:1"
+    .px = "0"
+    .py = "0"
+    .sx = "801"
+    .sy = "601"
+    .Image = "OS/HEXAC/SYS_APPS/LOGIN/GRAPH/backgrd.png"
+    create/
+end/ window
+
+textebox/ nicknameCase
+    .handle "%loginWdwref%"
+    .parametres = "MODIF:1 MULTILINES:1"
+    .px = "295"
+    .py = "299"
+    .sx = "210"
+    .sy = "21"
+    .BackColor = "225,225,225"
+    .TextColor = "000,000,000"
+    create/
+end/ textebox
+
+textebox/ passwordCase
+    .handle "%loginWdwref%"
+    .parametres = "MODIF:1 MULTILINES:1"
+    .px = "295"
+    .py = "335"
+    .sx = "210"
+    .sy = "21"
+    .BackColor = "225,225,225"
+    .TextColor = "000,000,000"
+    create/
+end/ textebox
+
+textebloc/ nicknameIndication
+    .handle = "%loginWdwref%"
+    .parameters = "MODIF:0 MULTILINES:0"
+    .px = "150"
+    .py = "299"
+    .tx = "100"
+    .ty = "20"
+    .text = "nickname"
+    .BackColor = "198,198,198"
+    .TextColor = "000,000,000"
+    create/
+end/ textebloc
+
+textebloc/ passwordIndication
+    .handle = "%loginWdwref%"
+    .parameters = "MODIF:0 MULTILINES:0"
+    .px = "150"
+    .py = "335"
+    .tx = "100"
+    .ty = "20"
+    .text = "password"
+    .BackColor = "198,198,198"
+    .TextColor = "000,000,000"
+    create/
+end/ textebloc
+
+button/ loginButton
+    .handle = "%loginWdwref%"
+    .parametres = "IMGAUTO:0"
+    .px = "355"
+    .py = "404"
+    .sx = "90"
+    .sy = "40"
+    .text = "Login"
+    .image = ""
+    .BackColor = "198,198,198"
+    .TextColor = "000,000,000"
+    .event = "%_exe_path_%=Click"
+    create/
+end/ button
+
+function/ loginButton.Click()
+    
+    textebox/ /modif:nicknameCase
+        @#USERNAME_SELECTED .text
+    end/ textebox
+
+    @#USERNAME ouvrir/ OS/HEXAC/SYSTEM/CONFIG/LOGIN/username.cfg
+
+    set/ correct_username = %USERNAME%
+
+
+    set/ purposed_username = %USERNAME_SELECTED%
+
+    if/ "%correct_username%" == "%purposed_username%" then:
+        // this is the good username
+    else:
+        msgbox/ Incorrect username. Please retry.
+    end/ if
+
+    textebox/ /modif:passwordCase
+        @#PASSWORD_SELECTED .text
+    end/ textebox
+
+    @#PASSWORD ouvrir/ OS/HEXAC/SYSTEM/CONFIG/LOGIN/password.cfg
+
+    set/ correct_password = %PASSWORD%
+
+    
+    set/ purposed_password = %PASSWORD_SELECTED%
+
+    if/ "%correct_password%" == "%purposed_password%" then:
+        fermer/ loginWindow
+        exe/ & OS/HEXAC/UI/TASKBAR/taskbar.cpc
+    else:
+        msgbox/ Incorrect password
+    end/ if
+end/ function
+
+
+    

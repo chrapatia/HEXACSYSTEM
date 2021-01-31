@@ -1,0 +1,63 @@
+//
+' MIT License
+'
+' Copyright (c) 2020 Chrapati LAGAHIM and contributors of HEXAC.
+'
+' Permission is hereby granted, free of charge, to any person obtaining a copy
+' of this software and associated documentation files (the "Software"), to deal
+' in the Software without restriction, including without limitation the rights
+' to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+' copies of the Software, and to permit persons to whom the Software is
+' furnished to do so, subject to the following conditions:
+'
+' The above copyright notice and this permission notice shall be included in all
+' copies or substantial portions of the Software.
+'
+' THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+' IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+' FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+' AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+' LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+' OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+' SOFTWARE.
+//
+
+sys/ /debug = 2
+
+set/ sizex = 800
+set/ sizey = 600
+
+set/ posx = /C(%CPC.SCR.X% / 2) - (%sizex% / 2)
+set/ posy = /C(%CPC.SCR.Y% / 2) - (%sizey% / 2)
+
+window/ licenceWindow
+    .title = "MIT License - HEXAC Setup"
+    .parameters = "TYPE:0"
+    .px = "%posx%"
+    .py = "%posy%"
+    .sx = "%sizex%"
+    .sy = "%sizey%"
+    .WindowColor = "000,019,209"
+    .BackColor = "198,198,198"
+    .TitleColor = "255,255,255"
+    .ImgTitre = ""
+    .Icon = "OS/HEXAC/SYSTEM/SETUP/APP/GRAPH/icon.png"
+    @#licencewindow_ref create/
+end/ window
+
+// @#LICENCE ouvrir/ OS/HEXAC/SYSTEM/SETUP/LICENSE/license.txt
+
+textebloc/ licenceBox
+    .handle = "%licencewindow_ref%"
+    .parameters = "MODIF:0 MULTILINES:1"
+    .px = "0"
+    .py = "0"
+    .sx = "800"
+    .sy = "500"
+    .text = "MIT License%CPC.CRLF%%CPC.CRLF%Copyright (c) 2020 Chrapati LAGAHIM and contributors of HEXAC.%CPC.CRLF%%CPC.CRLF%Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the <<Software>>), %CPC.CRLF%to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, %CPC.CRLF%and/or sellcopies of the Software, %CPC.CRLF%and to permit persons to whom the Software is furnished to do so, subject to the following conditions: %CPC.CRLF%%CPC.CRLF%The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. %CPC.CRLF%%CPC.CRLF%THE SOFTWARE IS PROVIDED <<AS IS>>, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, %CPC.CRLF%INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. %CPC.CRLF%IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, %CPC.CRLF%TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. "
+    .BackColor = "255,255,255"
+    .TextColor = "000,000,000"
+    create/
+end/ textebloc
+
+

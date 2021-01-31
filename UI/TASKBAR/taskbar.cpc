@@ -1,0 +1,101 @@
+//
+' MIT License
+'
+' Copyright (c) 2020 Chrapati LAGAHIM and contributors of HEXAC.
+'
+' Permission is hereby granted, free of charge, to any person obtaining a copy
+' of this software and associated documentation files (the "Software"), to deal
+' in the Software without restriction, including without limitation the rights
+' to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+' copies of the Software, and to permit persons to whom the Software is
+' furnished to do so, subject to the following conditions:
+'
+' The above copyright notice and this permission notice shall be included in all
+' copies or substantial portions of the Software.
+'
+' THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+' IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+' FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+' AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+' LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+' OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+' SOFTWARE.
+//
+
+// The HEXAC task bar
+
+
+set/ sizex = %CPC.SCR.X%
+
+fix/ posy = /C(%CPC.SCR.Y% - 21)
+
+
+window/ taskbar
+    .title = ""
+    .parametres = "TYPE:4 CTN:1 OMBRE:0"
+    .px = "0"
+    .py = "%posy%"
+    .sx = "%sizex%"
+    .sy = "21"
+    .opacite = "50"
+    .WindowColor = "000,000,000"
+    .TitleColor = "000,000,000"
+    .BackColor = "000,000,000"
+    .Icone = ""
+    .ImgTitre = ""
+    @#taskbar_ref create/
+end/ window
+
+picturebox/ task_background
+    .handle = "%taskbar_ref%"
+    .parametres = "IMGAUTO:2 COL:1"
+    .px = "0"
+    .py = "0"
+    .sx = "1921"
+    .sy = "22"
+    .Image = "OS/HEXAC/UI/TASKBAR/GRAPH/backgrd.png"
+    create/
+end/ picturebox
+
+picturebox/ menu_button
+    .handle = "%taskbar_ref%"
+    .parametres = "IMGAUTO:2"
+    .px = "5"
+    .py = "3"
+    .sx = "51"
+    .sy = "16"
+    .Image = "OS/HEXAC/UI/TASKBAR/GRAPH/btnclick.png"
+    .event = "OS/HEXAC/UI/TASKBAR/taskbar.cpc"
+    create/
+end/ picturebox
+
+set/ posxHour = /C(%sizex% - 50)
+
+textebloc/ hourBox
+    .handle = "%taskbar_ref%"
+    .parametres = "COL:1 MODIF:0 MULTILINES:0 IMGAUTO:2"
+    .text = "%CPC.TIME%"
+    .px = "%posxHour%"
+    .py = "3"
+    .sx = "50"
+    .sy = "15"
+    .BackColor = "197,197,197"
+    .TextColor = "000,000,000"
+    create/
+end/ textebloc
+    
+function/ menu_button.MouseClick()
+    picturebox/ /modif:menu_button
+        .image = "OS/HEXAC/UI/TASKBAR/GRAPH/btnenab.png"
+        create/
+    end/ picturebox
+    sys/ /debug /cpinti = 2 
+    ccp/ /pause:500
+    exe/ & OS/HEXAC/UI/MENU/menu.cpc
+    picturebox/ /modif:menu_button
+        .image = "OS/HEXAC/UI/TASKBAR/GRAPH/btnclick.png"
+        create/
+    end/ picturebox
+end/ function
+
+

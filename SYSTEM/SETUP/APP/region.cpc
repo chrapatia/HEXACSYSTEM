@@ -1,0 +1,128 @@
+//
+' MIT License
+'
+' Copyright (c) 2020 Chrapati LAGAHIM and contributors of HEXAC.
+'
+' Permission is hereby granted, free of charge, to any person obtaining a copy
+' of this software and associated documentation files (the "Software"), to deal
+' in the Software without restriction, including without limitation the rights
+' to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+' copies of the Software, and to permit persons to whom the Software is
+' furnished to do so, subject to the following conditions:
+'
+' The above copyright notice and this permission notice shall be included in all
+' copies or substantial portions of the Software.
+'
+' THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+' IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+' FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+' AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+' LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+' OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+' SOFTWARE.
+//
+
+// sys/ /debug = 2
+
+set/ sizex = 800
+set/ sizey = 600
+
+set/ posx = /C(%CPC.SCR.X% / 2) - (%sizex% / 2)
+set/ posy = /C(%CPC.SCR.Y% / 2) - (%sizey% / 2)
+
+window/ regionWindow
+    .title = "Region select - HEXAC Setup"
+    .parameters = "TYPE:0"
+    .px = "%posx%"
+    .py = "%posy%"
+    .sx = "%sizex%"
+    .sy = "%sizey%"
+    .WindowColor = "000,019,209"
+    .BackColor = "198,198,198"
+    .TitleColor = "255,255,255"
+    .ImgTitre = ""
+    .Icon = "OS/HEXAC/SYSTEM/SETUP/APP/GRAPH/icon.png"
+    @#regionselect_ref create/
+end/ window
+
+picturebox/ backgroundWindow
+    .handle = "%regionselect_ref%"
+    .parameters = "IMGAUTO:1"
+    .px = "0"
+    .py = "0"
+    .sx = "801"
+    .sy = "601"
+    .image = "OS/HEXAC/SYSTEM/SETUP/APP/GRAPH/region.png"
+    create/
+end/ picturebox
+
+button/ europeButton
+    .handle = "%regionselect_ref%"
+    .parameters = "IMGAUTO:0"
+    .px = "330"
+    .py = "160"
+    .sx = "140"
+    .sy = "50"
+    .text = "Europe"
+    .image = ""
+    .BackColor = "198,198,198"
+    .TextColor = "000,000,000"
+    .event = "%_exe_path_%=Click"
+    create/
+end/ button
+
+button/ north_americaButton
+    .handle = "%regionselect_ref%"
+    .parameters = "IMGAUTO:0"
+    .px = "330"
+    .py = "280"
+    .sx = "140"
+    .sy = "50"
+    .text = "North America"
+    .image = ""
+    .BackColor = "198,198,198"
+    .TextColor = "000,000,000"
+    .event = "%_exe_path_%=Click"
+    create/
+end/ button
+
+button/ asiaButton
+    .handle = "%regionselect_ref%"
+    .parameters = "IMGAUTO:0"
+    .px = "330"
+    .py = "400"
+    .sx = "140"
+    .sy = "50"
+    .text = "Asia"
+    .image = ""
+    .BackColor = "198,198,198"
+    .TextColor = "000,000,000"
+    .event = "%_exe_path_%=Click"
+    create/
+end/ button
+
+function/ europeButton.Click()
+    supprimer/ OS/HEXAC/SYSTEM/CONFIG/REGION/config.cfg
+    cmd/ /thread ecrire/ /BIN OS/HEXAC/SYSTEM/CONFIG/REGION/config.cfg = Europe
+    // exe/ OS/HEXAC/SYSTEM/SETUP/APP/licence.cpc
+    fermer/ regionWindow
+    exe/ & OS/HEXAC/SYSTEM/SETUP/APP/restart.cpc
+end/ function
+
+function/ north_americaButton.Click()
+    supprimer/ OS/HEXAC/SYSTEM/CONFIG/REGION/config.cfg
+    cmd/ /thread ecrire/ /BIN OS/HEXAC/SYSTEM/CONFIG/REGION/config.cfg = North America
+    // exe/ OS/HEXAC/SYSTEM/SETUP/APP/licence.cpc
+    fermer/ regionWindow
+    exe/ & OS/HEXAC/SYSTEM/SETUP/APP/restart.cpc
+end/ function
+
+function/ asiaButton.Click()
+    supprimer/ OS/HEXAC/SYSTEM/CONFIG/REGION/config.cfg
+    cmd/ /thread ecrire/ /BIN OS/HEXAC/SYSTEM/CONFIG/REGION/config.cfg = Asia
+    // exe/ OS/HEXAC/SYSTEM/SETUP/APP/licence.cpc
+    fermer/ regionWindow
+    exe/ & OS/HEXAC/SYSTEM/SETUP/APP/restart.cpc
+end/ function
+
+

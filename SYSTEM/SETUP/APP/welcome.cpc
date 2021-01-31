@@ -1,0 +1,160 @@
+//
+' MIT License
+'
+' Copyright (c) 2020 Chrapati LAGAHIM and contributors of HEXAC.
+'
+' Permission is hereby granted, free of charge, to any person obtaining a copy
+' of this software and associated documentation files (the "Software"), to deal
+' in the Software without restriction, including without limitation the rights
+' to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+' copies of the Software, and to permit persons to whom the Software is
+' furnished to do so, subject to the following conditions:
+'
+' The above copyright notice and this permission notice shall be included in all
+' copies or substantial portions of the Software.
+'
+' THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+' IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+' FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+' AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+' LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+' OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+' SOFTWARE.
+//
+
+// HEXAC setup programm - Welcome page
+
+
+
+set/ sizex = 800
+set/ sizey = 600
+
+set/ posx = /C(%CPC.SCR.X% / 2) - (%sizex% / 2)
+set/ posy = /C(%CPC.SCR.Y% / 2) - (%sizey% / 2)
+
+
+sys/ /debug = 0
+
+
+
+
+window/ welcomeSetup
+    .title = "Welcome - HEXAC Setup"
+    .parametres = "TYPE:0"
+    .px = "%posx%"
+    .py = "%posy%"
+    .sx = "%sizex%"
+    .sy = "%sizey%"
+    .WindowColor = "000,019,209"
+    .BackColor = "198,198,198"
+    .TitleColor = "255,255,255"
+    .ImgTitre = ""
+    .Icon = "OS/HEXAC/SYSTEM/SETUP/APP/GRAPH/icon.png"
+    @#welcomeSetup_ref create/
+end/ window
+
+picturebox/ backgroundWelcome
+    .handle = "%welcomeSetup_ref%"
+    .parametres = "IMGAUTO:2"
+    .px = "0"
+    .py = "0"
+    .sx = "801"
+    .sy = "601"
+    .Image = "OS/HEXAC/SYSTEM/SETUP/APP/GRAPH/acount.png"
+    create/
+end/ picturebox
+
+textebox/ firstnameCase
+    .handle "%welcomeSetup_ref%"
+    .parametres = "MODIF:1 MULTILINES:1"
+    .px = "295"
+    .py = "228"
+    .sx = "210"
+    .sy = "21"
+    .BackColor = "225,225,225"
+    .TextColor = "000,000,000"
+    create/
+end/ textebox
+
+textebox/ nameCase
+    .handle "%welcomeSetup_ref%"
+    .parametres = "MODIF:1 MULTILINES:1"
+    .px = "295"
+    .py = "263"
+    .sx = "210"
+    .sy = "21"
+    .BackColor = "225,225,225"
+    .TextColor = "000,000,000"
+    create/
+end/ textebox
+
+textebox/ nicknameCase
+    .handle "%welcomeSetup_ref%"
+    .parametres = "MODIF:1 MULTILINES:1"
+    .px = "295"
+    .py = "299"
+    .sx = "210"
+    .sy = "21"
+    .BackColor = "225,225,225"
+    .TextColor = "000,000,000"
+    create/
+end/ textebox
+
+textebox/ passwordCase
+    .handle "%welcomeSetup_ref%"
+    .parametres = "MODIF:1 MULTILINES:1"
+    .px = "295"
+    .py = "335"
+    .sx = "210"
+    .sy = "21"
+    .BackColor = "225,225,225"
+    .TextColor = "000,000,000"
+    create/
+end/ textebox
+
+button/ createButton
+    .handle = "%welcomeSetup_ref%"
+    .parametres = "IMGAUTO:0"
+    .px = "355"
+    .py = "404"
+    .sx = "90"
+    .sy = "40"
+    .text = "Create"
+    .image = ""
+    .BackColor = "198,198,198"
+    .TextColor = "000,000,000"
+    .event = "%_exe_path_%=Click"
+    create/
+end/ button
+
+function/ createButton.Click()
+    textebox/ /modif:firstnameCase
+            @#firstname_data .text
+    end/ textebox
+
+    textebox/ /modif:nameCase
+            @#name_data .text
+    end/ textebox
+
+    textebox/ /modif:nicknameCase
+            @#nickname_data .text
+    end/ textebox
+
+    textebox/ /modif:passwordCase
+            @#password_data .text
+    end/ textebox
+    
+    supprimer/ OS/HEXAC/SYSTEM/CONFIG/LOGIN/firstname.cfg
+    supprimer/ OS/HEXAC/SYSTEM/CONFIG/LOGIN/name.cfg
+    supprimer/ OS/HEXAC/SYSTEM/CONFIG/LOGIN/username.cfg
+    supprimer/ OS/HEXAC/SYSTEM/CONFIG/LOGIN/password.cfg
+    cmd/ /thread ecrire/ /BIN OS/HEXAC/SYSTEM/CONFIG/LOGIN/firstname.cfg = %firstname_data%
+    cmd/ /thread ecrire/ /BIN OS/HEXAC/SYSTEM/CONFIG/LOGIN/name.cfg = %name_data%
+    cmd/ /thread ecrire/ /BIN OS/HEXAC/SYSTEM/CONFIG/LOGIN/username.cfg = %nickname_data%
+    cmd/ /thread ecrire/ /BIN OS/HEXAC/SYSTEM/CONFIG/LOGIN/password.cfg = %password_data%
+	exe/ & OS/HEXAC/SYSTEM/SETUP/APP/region.cpc
+    fermer/ welcomeSetup
+end/ function
+
+
+

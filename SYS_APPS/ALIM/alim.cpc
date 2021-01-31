@@ -1,0 +1,141 @@
+//
+' MIT License
+'
+' Copyright (c) 2020 Chrapati LAGAHIM and contributors of HEXAC.
+'
+' Permission is hereby granted, free of charge, to any person obtaining a copy
+' of this software and associated documentation files (the "Software"), to deal
+' in the Software without restriction, including without limitation the rights
+' to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+' copies of the Software, and to permit persons to whom the Software is
+' furnished to do so, subject to the following conditions:
+'
+' The above copyright notice and this permission notice shall be included in all
+' copies or substantial portions of the Software.
+'
+' THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+' IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+' FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+' AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+' LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+' OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+' SOFTWARE.
+//
+
+// Alimentation menu for HEXAC
+
+set/ sizex = 400
+set/ sizey = 300
+
+set/ posx = /C(%CPC.SCR.X% / 2) - (%sizex% / 2)
+set/ posy = /C(%CPC.SCR.Y% / 2) - (%sizey% / 2)
+
+
+window/ alimentationWindow
+    .title = "Alimentation"
+    .parametres = "TYPE:4 CTN:1"
+    .px = "%posx%"
+    .py = "%posy%"
+    .sx = "%sizex%"
+    .sy = "%sizey%"
+    .BackColor = "198,198,198"
+    .TitleColor = "255,255,255"
+    .WindowColor = "000,000,000"
+    .ImgTitre = "OS/MEDIA/GUI/IMG_WIN.PNG"
+    .Icone = "OS/HEXAC/SYS_APPS/ALIM/GRAPH/icon.png"
+    @#alimwdw_ref create/
+end/ window
+
+textebloc/ WindowInformation
+    .handle = "%alimwdw_ref%"
+    .parametres = "COL:0 MULTILINES:0"
+    .px = "0"
+    .py = "0"
+    .sx = "400"
+    .sy = "30"
+    .text = "You will be leave HEXAC. Before, you can %CPC.CRLF%choose one of three options :"
+    .BackColor = "198,198,198"
+    .TextColor = "000,000,000"
+    create/
+end/ textebloc
+
+button/ shutdownComputer
+    .handle = "%alimwdw_ref%"
+    .parameters = "IMGAUTO:0"
+    .px = "50"
+    .py = "35"
+    .sx = "300"
+    .sy = "50"
+    .text = "Shutdown computer"
+    .BackColor = "255,193,102"
+    .TextColor = "000,000,000"
+    .event = "%_exe_path_%=Click"
+    create/
+end/ button
+
+button/ restartComputer
+    .handle = "%alimwdw_ref%"
+    .parameters = "IMGAUTO:0"
+    .px = "50"
+    .py = "105"
+    .sx = "300"
+    .sy = "50"
+    .text = "Restart computer"
+    .BackColor = "255,193,102"
+    .TextColor = "000,000,000"
+    .event = "%_exe_path_%=Click"
+    create/
+end/ button
+
+button/ cheeseDOSMode
+    .handle = "%alimwdw_ref%"
+    .parameters = "IMGAUTO:0"
+    .px = "50"
+    .py = "175"
+    .sx = "300"
+    .sy = "50"
+    .text = "Restart in cheeseDOS mode"
+    .BackColor = "255,193,102"
+    .TextColor = "000,000,000"
+    .event = "%_exe_path_%=Click"
+    create/
+end/ button
+
+button/ exitButton
+    .handle = "%alimwdw_ref%"
+    .parameters = "IMGAUTO:0"
+    .px = "175"
+    .py = "265"
+    .sx = "50"
+    .sy = "25"
+    .text = "Exit"
+    .BackColor = "255,193,102"
+    .TextColor = "000,000,000"
+    .event = "%_exe_path_%=Click"
+    create/
+end/ button
+
+function/ shutdownComputer.Click()
+    fermer/ alimentationWindow
+    fermer/ taskbar
+    sys/ /shutdown
+end/ function
+
+function/ restartComputer.Click()
+    fermer/ alimentationWindow
+    fermer/ taskbar
+    sys/ /restart
+end/ function
+
+function/ cheeseDOSMode.Click()
+    fermer/ alimentationWindow
+    fermer/ taskbar
+    iug/ /CONSOLE
+    exe/ & OS/HEXAC/CHDOS/boot.cpc
+end/ function
+
+function/ exitButton.Click()
+    fermer/ alimentationWindow
+end/ function
+
+
