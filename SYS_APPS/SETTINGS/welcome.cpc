@@ -40,7 +40,7 @@ set/ posyWindow = /C(%CPC.SCR.Y% / 2) - (%sizeYWindow% / 2)
 
 window/ welcomeSettingWindow
     .title = "HEXAC Setting - Welcome"
-    .parametres = "TYPE:4 CTN:1 BORD:0"
+    .parameters = "TYPE:4 CTN:1 BORD:0"
     .px = "%posxWindow%"
     .py = "%posyWindow%"
     .sx = "%sizeXWindow%"
@@ -55,7 +55,7 @@ end/ window
 
 picturebox/ welcomeBackground
     .handle = "%settingWelcomeWdw_ref%"
-    .parametres = "IMGAUTO:2"
+    .parameters = "IMGAUTO:2"
     .px = "0"
     .py = "0"
     .sx = "801"
@@ -66,7 +66,7 @@ end/ picturebox
 
 button/ internetButton
     .handle = "%settingWelcomeWdw_ref%"
-    .parametres = "IMGAUTO:1"
+    .parameters = "IMGAUTO:1"
     .px = "9"
     .py = "10"
     .sx = "190"
@@ -81,7 +81,7 @@ end/ button
 
 button/ backgroundButton
     .handle = "%settingWelcomeWdw_ref%"
-    .parametres = "IMGAUTO:1"
+    .parameters = "IMGAUTO:1"
     .px = "9"
     .py = "60"
     .sx = "190"
@@ -96,7 +96,7 @@ end/ button
 
 button/ userSettingsButton
     .handle = "%settingWelcomeWdw_ref%"
-    .parametres = "IMGAUTO:1"
+    .parameters = "IMGAUTO:1"
     .px = "9"
     .py = "110"
     .sx = "190"
@@ -111,7 +111,7 @@ end/ button
 
 button/ screenSettingsButton
     .handle = "%settingWelcomeWdw_ref%"
-    .parametres = "IMGAUTO:0"
+    .parameters = "IMGAUTO:0"
     .px = "9"
     .py = "160"
     .sx = "190"
@@ -126,7 +126,7 @@ end/ button
 
 button/ exitButton
     .handle = "%settingWelcomeWdw_ref%"
-    .parametres = "IMGAUTO:1"
+    .parameters = "IMGAUTO:1"
     .px = "9"
     .py = "210"
     .sx = "190"

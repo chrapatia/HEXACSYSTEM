@@ -40,7 +40,7 @@ set/ posyWindow = /C(%CPC.SCR.Y% / 2) - (%sizeYWindow% / 2)
 
 window/ backgroundSettingWindow
     .title = "HEXAC Setting - Background"
-    .parametres = "TYPE:4 CTN:1 BORD:0"
+    .parameters = "TYPE:4 CTN:1 BORD:0"
     .px = "%posxWindow%"
     .py = "%posyWindow%"
     .sx = "%sizeXWindow%"
@@ -55,7 +55,7 @@ end/ window
 
 picturebox/ backgrdBackground
     .handle = "%settingBackgroundWdw_ref%"
-    .parametres = "IMGAUTO:2"
+    .parameters = "IMGAUTO:2"
     .px = "0"
     .py = "0"
     .sx = "801"
@@ -66,7 +66,7 @@ end/ picturebox
 
 button/ exitButton
     .handle = "%settingBackgroundWdw_ref%"
-    .parametres = "IMGAUTO:0"
+    .parameters = "IMGAUTO:0"
     .px = "10"
     .py = "550"
     .sx = "190"
@@ -81,7 +81,7 @@ end/ button
 
 button/ optionOneButton
     .handle = "%settingBackgroundWdw_ref%"
-    .parametres = "IMGAUTO:1"
+    .parameters = "IMGAUTO:1"
     .px = "305"
     .py = "205"
     .sx = "190"
@@ -96,7 +96,7 @@ end/ button
 
 button/ optionTwoButton
     .handle = "%settingBackgroundWdw_ref%"
-    .parametres = "IMGAUTO:1"
+    .parameters = "IMGAUTO:1"
     .px = "100"
     .py = "205"
     .sx = "190"
@@ -111,7 +111,7 @@ end/ button
 
 button/ optionThreeButton
     .handle = "%settingBackgroundWdw_ref%"
-    .parametres = "IMGAUTO:1"
+    .parameters = "IMGAUTO:1"
     .px = "510"
     .py = "205"
     .sx = "190"

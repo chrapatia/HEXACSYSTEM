@@ -26,7 +26,7 @@
 
 window/ webbrowserWindow
     .title = "WebBrowser"
-    .parametres = "TYPE:0"
+    .parameters = "TYPE:0"
     .px = "100"
     .py = "100"
     .sx = "400"
@@ -41,7 +41,7 @@ end/ window
 
 textebloc/ disableMessage
     .handle = "%webbrowserwindow_ref%"
-    .parametres = "COL:1 MULTINLINES:1 MODIF:0"
+    .parameters = "COL:1 MULTINLINES:1 MODIF:0"
     .px = "0"
     .py = "0"
     .tx = "400"

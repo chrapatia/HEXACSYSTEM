@@ -26,7 +26,7 @@
 
 window/ appsWindow
     .title = "Applications"
-    .parametres = "TYPE:0"
+    .parameters = "TYPE:0"
     .px = "100"
     .py = "100"
     .sx = "240"
@@ -41,7 +41,7 @@ end/ window
 
 button/ notepadButton
     .handle = "%appswin_ref%"
-    .parametres = "IMGAUTO:0"
+    .parameters = "IMGAUTO:0"
     .px = "15"
     .py = "15"
     .sx = "60"
@@ -56,7 +56,7 @@ end/ button
 
 button/ calcButton
     .handle = "%appswin_ref%"
-    .parametres = "IMGAUTO:0"
+    .parameters = "IMGAUTO:0"
     .px = "90"
     .py = "15"
     .sx = "60"
@@ -71,7 +71,7 @@ end/ button
 
 button/ supersearchButton
     .handle = "%appswin_ref%"
-    .parametres = "IMGAUTO:0"
+    .parameters = "IMGAUTO:0"
     .px = "165"
     .py = "15"
     .sx = "60"
@@ -85,7 +85,7 @@ end/ button
 
 button/ photoButton
     .handle = "%appswin_ref%"
-    .parametres = "IMGAUTO:0"
+    .parameters = "IMGAUTO:0"
     .px = "15"
     .py = "105"
     .sx = "60"
@@ -99,7 +99,7 @@ end/ button
 
 button/ videoButton
     .handle = "%appswin_ref%"
-    .parametres = "IMGAUTO:0"
+    .parameters = "IMGAUTO:0"
     .px = "90"
     .py = "105"
     .sx = "60"
@@ -113,7 +113,7 @@ end/ button
 
 button/ appstoreButton
     .handle = "%appswin_ref%"
-    .parametres = "IMGAUTO:0"
+    .parameters = "IMGAUTO:0"
     .px = "165"
     .py = "105"
     .sx = "60"
@@ -127,7 +127,7 @@ end/ button
 
 button/ weatherButton
     .handle = "%appswin_ref%"
-    .parametres = "IMGAUTO:0"
+    .parameters = "IMGAUTO:0"
     .px = "15"
     .py = "195"
     .sx = "60"
@@ -141,7 +141,7 @@ end/ button
 
 button/ newsButton
     .handle = "%appswin_ref%"
-    .parametres = "IMGAUTO:0"
+    .parameters = "IMGAUTO:0"
     .px = "90"
     .py = "195"
     .sx = "60"
@@ -155,7 +155,7 @@ end/ button
 
 button/ chrapatiaButton
     .handle = "%appswin_ref%"
-    .parametres = "IMGAUTO:0"
+    .parameters = "IMGAUTO:0"
     .px = "165"
     .py = "195"
     .sx = "60"
@@ -169,7 +169,7 @@ end/ button
 
 button/ aboutButton
     .handle = "%appswin_ref%"
-    .parametres = "IMGAUTO:0"
+    .parameters = "IMGAUTO:0"
     .px = "90"
     .py = "270"
     .sx = "60"

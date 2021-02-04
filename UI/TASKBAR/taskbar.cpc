@@ -32,7 +32,7 @@ fix/ posy = /C(%CPC.SCR.Y% - 21)
 
 window/ taskbar
     .title = ""
-    .parametres = "TYPE:4 CTN:1 OMBRE:0"
+    .parameters = "TYPE:4 CTN:1 OMBRE:0"
     .px = "0"
     .py = "%posy%"
     .sx = "%sizex%"
@@ -48,7 +48,7 @@ end/ window
 
 picturebox/ task_background
     .handle = "%taskbar_ref%"
-    .parametres = "IMGAUTO:2 COL:1"
+    .parameters = "IMGAUTO:2 COL:1"
     .px = "0"
     .py = "0"
     .sx = "1921"
@@ -59,7 +59,7 @@ end/ picturebox
 
 picturebox/ menu_button
     .handle = "%taskbar_ref%"
-    .parametres = "IMGAUTO:2"
+    .parameters = "IMGAUTO:2"
     .px = "5"
     .py = "3"
     .sx = "51"
@@ -73,7 +73,7 @@ set/ posxHour = /C(%sizex% - 50)
 
 textebloc/ hourBox
     .handle = "%taskbar_ref%"
-    .parametres = "COL:1 MODIF:0 MULTILINES:0 IMGAUTO:2"
+    .parameters = "COL:1 MODIF:0 MULTILINES:0 IMGAUTO:2"
     .text = "%CPC.TIME%"
     .px = "%posxHour%"
     .py = "3"
@@ -85,17 +85,21 @@ textebloc/ hourBox
 end/ textebloc
     
 function/ menu_button.MouseClick()
+
     picturebox/ /modif:menu_button
         .image = "OS/HEXAC/UI/TASKBAR/GRAPH/btnenab.png"
         create/
     end/ picturebox
-    sys/ /debug /cpinti = 2 
+
     ccp/ /pause:500
+
     exe/ & OS/HEXAC/UI/MENU/menu.cpc
+
     picturebox/ /modif:menu_button
         .image = "OS/HEXAC/UI/TASKBAR/GRAPH/btnclick.png"
         create/
     end/ picturebox
+
 end/ function
 
 

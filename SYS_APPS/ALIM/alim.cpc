@@ -33,7 +33,7 @@ set/ posy = /C(%CPC.SCR.Y% / 2) - (%sizey% / 2)
 
 window/ alimentationWindow
     .title = "Alimentation"
-    .parametres = "TYPE:4 CTN:1"
+    .parameters = "TYPE:4 CTN:1"
     .px = "%posx%"
     .py = "%posy%"
     .sx = "%sizex%"
@@ -48,7 +48,7 @@ end/ window
 
 textebloc/ WindowInformation
     .handle = "%alimwdw_ref%"
-    .parametres = "COL:0 MULTILINES:0"
+    .parameters = "COL:0 MULTILINES:0"
     .px = "0"
     .py = "0"
     .sx = "400"

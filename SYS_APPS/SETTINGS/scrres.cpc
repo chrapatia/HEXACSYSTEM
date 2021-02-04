@@ -38,7 +38,7 @@ set/ posyWindow = /C(%CPC.SCR.Y% / 2) - (%sizeYWindow% / 2)
 
 window/ screenSettingWindow
     .title = "Screen Resolution"
-    .parametres = "TYPE:4 CTN:1 BORD:0"
+    .parameters = "TYPE:4 CTN:1 BORD:0"
     .px = "%posxWindow%"
     .py = "%posyWindow%"
     .sx = "%sizeXWindow%"
@@ -53,7 +53,7 @@ end/ window
 
 picturebox/ screenBackground
     .handle = "%settingScreenWindow_ref%"
-    .parametres = "IMGAUTO:1"
+    .parameters = "IMGAUTO:1"
     .px = "0"
     .py = "0"
     .sx = "801"
@@ -64,7 +64,7 @@ end/ picturebox
 
 button/ optionOneButton
     .handle = "%settingScreenWindow_ref%"
-    .parametres = "IMGAUTO:1"
+    .parameters = "IMGAUTO:1"
     .px = "5"
     .py = "205"
     .sx = "190"
@@ -79,7 +79,7 @@ end/ button
 
 button/ optionTwoButton
     .handle = "%settingScreenWindow_ref%"
-    .parametres = "IMGAUTO:1"
+    .parameters = "IMGAUTO:1"
     .px = "200"
     .py = "205"
     .sx = "190"
@@ -94,7 +94,7 @@ end/ button
 
 button/ optionThreeButton
     .handle = "%settingScreenWindow_ref%"
-    .parametres = "IMGAUTO:1"
+    .parameters = "IMGAUTO:1"
     .px = "410"
     .py = "205"
     .sx = "190"
@@ -109,7 +109,7 @@ end/ button
 
 button/ optionFourButton
     .handle = "%settingScreenWindow_ref%"
-    .parametres = "IMGAUTO:1"
+    .parameters = "IMGAUTO:1"
     .px = "605"
     .py = "205"
     .sx = "190"
@@ -124,7 +124,7 @@ end/ button
 
 button/ exitButton
     .handle = "%settingScreenWindow_ref%"
-    .parametres = "IMGAUTO:0"
+    .parameters = "IMGAUTO:0"
     .px = "10"
     .py = "550"
     .sx = "190"

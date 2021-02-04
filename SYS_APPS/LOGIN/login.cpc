@@ -35,7 +35,7 @@ set/ posy = /C(%CPC.SCR.Y% / 2) - (%sizey% / 2)
 
 window/ loginWindow
     .title = "Login"
-    .parametres = "TYPE:0"
+    .parameters = "TYPE:0"
     .px = "%posx%"
     .py = "%posy%"
     .sx = "%sizex%"
@@ -50,7 +50,7 @@ end/ window
 
 picturebox/ backgroundWindow
     .handle = "%loginWdwref%"
-    .parametres = "IMGAUTO:1"
+    .parameters = "IMGAUTO:1"
     .px = "0"
     .py = "0"
     .sx = "801"
@@ -61,7 +61,7 @@ end/ window
 
 textebox/ nicknameCase
     .handle "%loginWdwref%"
-    .parametres = "MODIF:1 MULTILINES:1"
+    .parameters = "MODIF:1 MULTILINES:1"
     .px = "295"
     .py = "299"
     .sx = "210"
@@ -73,7 +73,7 @@ end/ textebox
 
 textebox/ passwordCase
     .handle "%loginWdwref%"
-    .parametres = "MODIF:1 MULTILINES:1"
+    .parameters = "MODIF:1 MULTILINES:1"
     .px = "295"
     .py = "335"
     .sx = "210"
@@ -111,7 +111,7 @@ end/ textebloc
 
 button/ loginButton
     .handle = "%loginWdwref%"
-    .parametres = "IMGAUTO:0"
+    .parameters = "IMGAUTO:0"
     .px = "355"
     .py = "404"
     .sx = "90"

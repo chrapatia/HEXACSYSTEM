@@ -40,7 +40,7 @@ sys/ /debug = 0
 
 window/ welcomeSetup
     .title = "Welcome - HEXAC Setup"
-    .parametres = "TYPE:0"
+    .parameters = "TYPE:0"
     .px = "%posx%"
     .py = "%posy%"
     .sx = "%sizex%"
@@ -55,7 +55,7 @@ end/ window
 
 picturebox/ backgroundWelcome
     .handle = "%welcomeSetup_ref%"
-    .parametres = "IMGAUTO:2"
+    .parameters = "IMGAUTO:2"
     .px = "0"
     .py = "0"
     .sx = "801"
@@ -66,7 +66,7 @@ end/ picturebox
 
 textebox/ firstnameCase
     .handle "%welcomeSetup_ref%"
-    .parametres = "MODIF:1 MULTILINES:1"
+    .parameters = "MODIF:1 MULTILINES:1"
     .px = "295"
     .py = "228"
     .sx = "210"
@@ -78,7 +78,7 @@ end/ textebox
 
 textebox/ nameCase
     .handle "%welcomeSetup_ref%"
-    .parametres = "MODIF:1 MULTILINES:1"
+    .parameters = "MODIF:1 MULTILINES:1"
     .px = "295"
     .py = "263"
     .sx = "210"
@@ -90,7 +90,7 @@ end/ textebox
 
 textebox/ nicknameCase
     .handle "%welcomeSetup_ref%"
-    .parametres = "MODIF:1 MULTILINES:1"
+    .parameters = "MODIF:1 MULTILINES:1"
     .px = "295"
     .py = "299"
     .sx = "210"
@@ -102,7 +102,7 @@ end/ textebox
 
 textebox/ passwordCase
     .handle "%welcomeSetup_ref%"
-    .parametres = "MODIF:1 MULTILINES:1"
+    .parameters = "MODIF:1 MULTILINES:1"
     .px = "295"
     .py = "335"
     .sx = "210"
@@ -114,7 +114,7 @@ end/ textebox
 
 button/ createButton
     .handle = "%welcomeSetup_ref%"
-    .parametres = "IMGAUTO:0"
+    .parameters = "IMGAUTO:0"
     .px = "355"
     .py = "404"
     .sx = "90"

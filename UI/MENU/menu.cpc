@@ -32,7 +32,7 @@ set/ posy = /C(%CPC.SCR.Y% - 422)
 
 window/ menuWindow
     .title = ""
-    .parametres = "TYPE:4 CTN:1 OMBRE:0"
+    .parameters = "TYPE:4 CTN:1 OMBRE:0"
     .px = "0"
     .py = "%posy%"
     .sx = "300"
@@ -47,7 +47,7 @@ end/ window
 
 picturebox/ menuBackground
     .handle = "%menuwin_ref%"
-    .parametres = "IMGAUTO:2"
+    .parameters = "IMGAUTO:2"
     .px = "0"
     .py = "0"
     .sx = "301"
@@ -58,7 +58,7 @@ end/ picturebox
 
 button/ applicationsButton
     .handle = "%menuwin_ref%"
-    .parametres = "IMGAUTO:0"
+    .parameters = "IMGAUTO:0"
     .px = "5"
     .py = "45"
     .sx = "290"
@@ -73,7 +73,7 @@ end/ button
 
 button/ documentsButton
     .handle = "%menuwin_ref%"
-    .parametres = "IMGAUTO:0"
+    .parameters = "IMGAUTO:0"
     .px = "5"
     .py = "100"
     .sx = "290"
@@ -88,7 +88,7 @@ end/ button
 
 button/ gamelauncherButton
     .handle = "%menuwin_ref%"
-    .parametres = "IMGAUTO:0"
+    .parameters = "IMGAUTO:0"
     .px = "5"
     .py = "155"
     .sx = "290"
@@ -103,7 +103,7 @@ end/ button
 
 button/ settingsButton
     .handle = "%menuwin_ref%"
-    .parametres = "IMGAUTO:0"
+    .parameters = "IMGAUTO:0"
     .px = "5"
     .py = "265"
     .sx = "290"
@@ -118,7 +118,7 @@ end/ button
 
 button/ exitButton
     .handle = "%menuwin_ref%"
-    .parametres = "IMGAUTO:0"
+    .parameters = "IMGAUTO:0"
     .px = "20"
     .py = "355"
     .sx = "60"
@@ -133,7 +133,7 @@ end/ button
 
 button/ aboutButton
     .handle = "%menuwin_ref%"
-    .parametres = "IMGAUTO:0"
+    .parameters = "IMGAUTO:0"
     .px = "120"
     .py = "355"
     .sx = "60"
@@ -148,7 +148,7 @@ end/ button
 
 button/ alimentationButton
     .handle = "%menuwin_ref%"
-    .parametres = "IMGAUTO:0"
+    .parameters = "IMGAUTO:0"
     .px = "220"
     .py = "355"
     .sx = "60"
