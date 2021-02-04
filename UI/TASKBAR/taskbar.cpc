@@ -27,7 +27,7 @@
 
 set/ sizex = %CPC.SCR.X%
 
-fix/ posy = /C(%CPC.SCR.Y% - 21)
+set/ posy = /C(%CPC.SCR.Y% - 21)
 
 
 window/ taskbar

@@ -31,7 +31,7 @@ declare/ division()
 
 txt/ cheeseDOS calcualtor.
 txt/ Please choose a math operation : addition, substraction, multiplication, division. If you want back on cheeseDOS menu, tape exit. /#R
-fix/  /q operation_math
+set/  /q operation_math
 
 if/ "%operation_math%" == "addition" then:
     /F: addition()
