@@ -1,0 +1,63 @@
+
+// Variables niveau OS
+ccp/ /fix.niveau = 4
+fix/ OS_GUI = OS/MEDIA/GUI
+
+// USER
+CCP/ /SET.LEVEL = 3
+
+
+// [FR] Configuration GUi
+// [EN] GUI configuration
+EXE/ & OS/HEXAC/UI/ENV_GUI/gui_std.cpc
+
+// [FR] Configuration curseurs graphiques
+// [EN] Config graphic cursors
+EXE/ & OS/HEXAC/UI/ENV_GUI/cursor.cpc
+
+// [FR] Configuration des fenetres
+// [EN] Window configuration
+EXE/ & OS/HEXAC/UI/ENV_GUI/window.cpc
+
+
+// [FR] Configuration du bouton
+// [EN] Button configuration
+EXE/ & OS/HEXAC/UI/ENV_GUI/button.cpc
+
+// [FR] Configuration du textebox
+// [EN] Textbox configuration
+EXE/ & OS/HEXAC/UI/ENV_GUI/txtbox.cpc
+
+// [FR] Configuration du checkbox
+// [EN] checkbox configuration
+EXE/ & OS/HEXAC/UI/ENV_GUI/checkbox.cpc
+
+// [FR] Configuration de l'explorateur
+// [EN] Explorer configuration
+EXE/ & OS/HEXAC/UI/ENV_GUI/explorer.cpc
+
+
+// [FR] Configuration du msgbox
+// [EN] Msgbox configuration
+EXE/ & OS/HEXAC/UI/ENV_GUI/msgbox.cpc
+
+
+// [FR] Configuration du menu contextuel
+// [EN] Contextual configuration
+EXE/ & OS/HEXAC/UI/ENV_GUI/CONTEXT.cpc
+
+
+// [FR] Configuration du desktop
+// [EN] Desktop configuration
+EXE/ & OS/HEXAC/UI/ENV_GUI/DESKTOP.cpc
+
+
+// [FR] Configuration du TaskBar
+// [EN] TaskBar configuration
+EXE/ & OS/HEXAC/UI/ENV_GUI/TASKBAR.cpc
+
+
+
+
+
+

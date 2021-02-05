@@ -167,7 +167,7 @@ function/ applicationsButton.Click()
 end/ function
 
 function/ documentsButton.Click()
-    exe/ & OS/HEXAC/SYSTEM/FILEEXP/explorer.cpc
+    exe/ & OS/HEXAC/SYS_APPS/FILEEXP/explorer.cpc
     fermer/ menuWindow
 end/ function
 

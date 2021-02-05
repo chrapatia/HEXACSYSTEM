@@ -41,7 +41,7 @@ window/ alimentationWindow
     .BackColor = "198,198,198"
     .TitleColor = "255,255,255"
     .WindowColor = "000,000,000"
-    .ImgTitre = "OS/MEDIA/GUI/IMG_WIN.PNG"
+    .ImgTitre = "OS/HEXAC/UI/GRAPHICS/GUI/IMG_WIN.PNG"
     .Icone = "OS/HEXAC/SYS_APPS/ALIM/GRAPH/icon.png"
     @#alimwdw_ref create/
 end/ window

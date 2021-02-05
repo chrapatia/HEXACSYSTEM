@@ -34,8 +34,8 @@ window/ appsWindow
     .WindowColor = "000,000,000"
     .BackColor = "198,198,198"
     .TitleColor = "255,255,255"
-    .ImgTitre = "OS/MEDIA/GUI/IMG_WIN.PNG"
-    .Icone = "OS/MEDIA/GUI/ICO_DEF.PNG"
+    .ImgTitre = "OS/HEXAC/UI/GRAPHICS/GUI/IMG_WIN.PNG"
+    .Icon = "OS/HEXAC/UI/GRAPHICS/GUI/ICO_DEF.PNG"
     @#appswin_ref create/
 end/ window
 

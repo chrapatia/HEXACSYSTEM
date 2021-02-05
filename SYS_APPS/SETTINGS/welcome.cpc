@@ -48,7 +48,7 @@ window/ welcomeSettingWindow
     .WindowColor = "000,000,000"
     .BackColor = "000,000,000"
     .TitleColor = "255,255,255"
-    .ImgTitre = "OS/MEDIA/GUI/IMG_WIN.PNG"
+    .ImgTitre = ""
     .Icon = ""
     @#settingWelcomeWdw_ref create/
 end/ window

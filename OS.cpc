@@ -23,7 +23,7 @@
 //
 
 // This file is the index file for the kernel. Don't delete or rename this.
-// Created on : 11/24/19 | Updated on : 03/21/20
+// Created on : 11/24/19 | Updated on : 02/04/21
 Declare/ bootSequence() : level(4)
 
 // sys/ /debug = 2
@@ -38,13 +38,13 @@ set/ os_name = Hexac Sysem
 set/ os_developper = chrapatia
 set/ os_publisher = chrapatia
 set/ os_ver_maj = 1
-set/ os_ver_min = 4
+set/ os_ver_min = 5
 set/ os_ver_patch = 0
 set/ os_dev_stat = Alpha
 
 // Graphic User Interface Configuration
 
-exe/ & %CPC.REP.KRNL%/CONFIG/ENV_GUI/env_gui.cpc
+exe/ & OS/HEXAC/UI/ENV_GUI/env_gui.cpc
 set/ SCR_BIT = 24
 sys/ /os:HEXAC
 cls/
@@ -59,20 +59,37 @@ function/ bootSequence()
     @#BOOT_GET_INFORMATION_SETUP ouvrir/ OS/HEXAC/SYSTEM/SETUP/info.cfg
 
     if/ "%BOOT_GET_INFORMATION_SETUP%" == "True" then:
+
         @#SCREEN_RESOLUTION ouvrir/ OS/HEXAC/SYSTEM/CONFIG/SCR_RES/config.cfg
+
         set/ SCR_RES = %SCREEN_RESOLUTION%
+
         set/ SCR_IMG_MODE = 2
+
         @#FOND ouvrir/ OS/HEXAC/SYSTEM/CONFIG/BACKGRD/config.cfg
+
         set/ SCR_IMG = %FOND%
-        iug/
+
+        gui/
+
+        sys/ /fileformat-gui-load
+
         // exe/ & OS/HEXAC/SYS_APPS/LOGIN/login.cpc
+
         exe/ & OS/HEXAC/UI/TASKBAR/taskbar.cpc
+
     else:
+        
         set/ SCR_RES = 1024x768
+
         set/ SCR_IMG = OS/HEXAC/SYSTEM/SETUP/BACKGRD/FSTSTP.png
+
         iug/
+
         exe/ & OS/HEXAC/SYSTEM/SETUP/APP/welcome.cpc
+
     end/ if
+
 end/ function
 
 
