@@ -34,7 +34,7 @@ window/ notepadWindow
     .WindowColor = "000,000,000"
     .BackColor = "198,198,198"
     .TitleColor = "255,255,255"
-    .ImgTitre = ""
+    .ImgTitre = "OS/HEXAC/UI/GRAPHICS/GUI/IMG_WIN.png"
     .Icone = "OS/HEXAC/SYS_APPS/NOTEPAD/GRAPH/icon.png"
     @#notepadwin_ref create/
 end/ window

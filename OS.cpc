@@ -48,14 +48,16 @@ exe/ & OS/HEXAC/UI/ENV_GUI/env_gui.cpc
 set/ SCR_BIT = 24
 sys/ /os:HEXAC
 cls/
-txt/ Starting HEXAC...
+txt/ Starting Hexac System...
 ccp/ /pause:3000
 /F: bootSequence()
 
 // Boot Sequence
 
 function/ bootSequence()
+
     ccp/ /set.level = 1
+
     @#BOOT_GET_INFORMATION_SETUP ouvrir/ OS/HEXAC/SYSTEM/SETUP/info.cfg
 
     if/ "%BOOT_GET_INFORMATION_SETUP%" == "True" then:
@@ -74,9 +76,11 @@ function/ bootSequence()
 
         sys/ /fileformat-gui-load
 
-        // exe/ & OS/HEXAC/SYS_APPS/LOGIN/login.cpc
+        exe/ & OS/HEXAC/SYS_APPS/LOGIN/login.cpc
 
-        exe/ & OS/HEXAC/UI/TASKBAR/taskbar.cpc
+        // sys/ /debug = 2
+
+        // set/ MonID_Desktop = /f:Init_desktop(MonBureau, C:\CPCDOS\OS\HEXAC\SYS_APPS,10, 10, 800, 600) -> Add this for a next update
 
     else:
         

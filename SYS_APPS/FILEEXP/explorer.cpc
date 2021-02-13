@@ -22,6 +22,13 @@
 ' SOFTWARE.
 //
 
+ccp/ /set.level = 3
+
+set/ default_path = C:\CPCDOS\OS\HEXAC
+
+ccp/ /set.level = 2
+
+sys/ /debug = 2
 
 window/ explorerWindow
         .title = "Documents"
@@ -38,21 +45,9 @@ window/ explorerWindow
         @#explorerwindow_ref create/
 end/ window
 
-textbox/ searchURL
-        .handle = "%eplorerwindow_ref%"
-        .parameters = "EDIT:1 MULTILINES:0"
-        .px = "5"
-        .py = "5"
-        .sx = "790"
-        .sy = "21"
-        .TextColor = "000,000,000"
-        .BackColor = "255,255,255"
-        create/
-end/ textbox
-
 explorer/ explorerObject
         .handle = "%explorerwindow_ref%"
-        .parameters = "EXPLOREMODE:0"
+        .parameters = "EXPLOREMODE:2"
         .px = "0"
         .py = "30"
         .sx = "800"
@@ -62,6 +57,21 @@ explorer/ explorerObject
         .event = "%_exe_path_%"
         create/
 end/ explorer
+
+textbox/ searchURL
+        .handle = "%explorerwindow_ref%"
+        .parameters = "EDIT:1 MULTILINES:0"
+        .px = "5"
+        .py = "5"
+        .sx = "790"
+        .sy = "21"
+        .TextColor = "000,000,000"
+        .BackColor = "255,255,255"
+        .text = "%default_path%"
+        create/
+end/ textbox
+
+
 
 
 
