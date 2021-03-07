@@ -1,7 +1,7 @@
 //
 ' MIT License
 '
-' Copyright (c) 2020 Chrapati LAGAHIM and contributors of HEXAC.
+' Copyright (c) 2020-2021 Chrapati LAGAHIM and contributors of Hexac System.
 '
 ' Permission is hereby granted, free of charge, to any person obtaining a copy
 ' of this software and associated documentation files (the "Software"), to deal
@@ -26,6 +26,8 @@
 // Created on : 11/24/19 | Updated on : 02/04/21
 Declare/ bootSequence() : level(4)
 
+txt/ Hello world !
+
 // sys/ /debug = 2
 
 ccp/ /lang = EN
@@ -34,7 +36,7 @@ sys/ /DEBUG /menu = 0
 
 // Operating System Informations
 
-set/ os_name = Hexac Sysem
+set/ os_name = Hexac System
 set/ os_developper = chrapatia
 set/ os_publisher = chrapatia
 set/ os_ver_maj = 1
@@ -45,12 +47,15 @@ set/ os_dev_stat = Alpha
 // Graphic User Interface Configuration
 
 exe/ & OS/HEXAC/UI/ENV_GUI/env_gui.cpc
+sys/ /load-format OS/HEXAC/SYSTEM/FORMATS/HEXACFRM.INI
 set/ SCR_BIT = 24
 sys/ /os:HEXAC
 cls/
 txt/ Starting Hexac System...
 ccp/ /pause:3000
 /F: bootSequence()
+
+txt/ GUI loaded !
 
 // Boot Sequence
 
@@ -76,11 +81,15 @@ function/ bootSequence()
 
         sys/ /fileformat-gui-load
 
-        exe/ & OS/HEXAC/SYS_APPS/LOGIN/login.cpc
+        // exe/ & OS/HEXAC/SYS_APPS/LOGIN/login.cpc
 
         // sys/ /debug = 2
 
-        // set/ MonID_Desktop = /f:Init_desktop(MonBureau, C:\CPCDOS\OS\HEXAC\SYS_APPS,10, 10, 800, 600) -> Add this for a next update
+        exe/ & OS/HEXAC/UI/TASKBAR/taskbar.cpc
+
+        sys/ /debug = 2
+
+        set/ MonID_Desktop = /f:Init_desktop(hexacDesktop, C:\CPCDOS\OS\HEXAC\UI\ENV_GUI\DESKTOP.CPC,10, 10, 800, 600)
 
     else:
         

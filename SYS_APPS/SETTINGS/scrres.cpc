@@ -25,7 +25,7 @@
 // HEXAC Settings - Resolution Setting page
 
 
-sys/ /debug = 2
+// sys/ /debug = 2
 
 ccp/ /set.level = 4
 

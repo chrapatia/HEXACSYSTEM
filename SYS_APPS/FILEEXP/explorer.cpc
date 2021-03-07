@@ -28,7 +28,7 @@ set/ default_path = C:\CPCDOS\OS\HEXAC
 
 ccp/ /set.level = 2
 
-sys/ /debug = 2
+// sys/ /debug = 2
 
 window/ explorerWindow
         .title = "Documents"

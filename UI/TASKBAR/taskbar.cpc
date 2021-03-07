@@ -27,7 +27,7 @@
 
 set/ sizex = %CPC.SCR.X%
 
-set/ posy = /C(%CPC.SCR.Y% - 21)
+set/ posy = /C(%CPC.SCR.Y% - 30)
 
 
 window/ taskbar
@@ -36,7 +36,7 @@ window/ taskbar
     .px = "0"
     .py = "%posy%"
     .sx = "%sizex%"
-    .sy = "21"
+    .sy = "30"
     .opacite = "50"
     .WindowColor = "000,000,000"
     .TitleColor = "000,000,000"
@@ -52,24 +52,38 @@ picturebox/ task_background
     .px = "0"
     .py = "0"
     .sx = "1921"
-    .sy = "22"
-    .Image = "OS/HEXAC/UI/TASKBAR/GRAPH/backgrd.png"
+    .sy = "31"
+    .Image = "OS/HEXAC/UI/GRAPHICS/GUI/BUTTONS/BTN_GRA2.PNG"
     create/
 end/ picturebox
 
-picturebox/ menu_button
+button/ menu_button
     .handle = "%taskbar_ref%"
     .parameters = "IMGAUTO:2"
+    .text = "Menu"
     .px = "5"
     .py = "3"
-    .sx = "51"
-    .sy = "16"
-    .Image = "OS/HEXAC/UI/TASKBAR/GRAPH/btnclick.png"
-    .event = "OS/HEXAC/UI/TASKBAR/taskbar.cpc"
+    .sx = "99"
+    .sy = "25"
+    .BackColor = "198,198,198"
+    .TextColor = "000,000,000"
+    .event = "%_exe_path_%=Click"
     create/
-end/ picturebox
+end/ button
 
 set/ posxHour = /C(%sizex% - 50)
+set/ posxClock = /C(%sizex% - 104)
+
+picturebox/ hourBck
+    .handle = "%taskbar_ref%"
+    .parameters = "IMGAUTO:2"
+    .px = "%posxClock%"
+    .py = "3"
+    .sx = "99"
+    .sy = "25"
+    .Image = "OS/HEXAC/UI/TASKBAR/GRAPH/clock.png"
+    create/
+end/ picturebox
 
 textebloc/ hourBox
     .handle = "%taskbar_ref%"
@@ -84,21 +98,9 @@ textebloc/ hourBox
     create/
 end/ textebloc
     
-function/ menu_button.MouseClick()
-
-    picturebox/ /modif:menu_button
-        .image = "OS/HEXAC/UI/TASKBAR/GRAPH/btnenab.png"
-        create/
-    end/ picturebox
-
-    ccp/ /pause:500
+function/ menu_button.Click()
 
     exe/ & OS/HEXAC/UI/MENU/menu.cpc
-
-    picturebox/ /modif:menu_button
-        .image = "OS/HEXAC/UI/TASKBAR/GRAPH/btnclick.png"
-        create/
-    end/ picturebox
 
 end/ function
 
