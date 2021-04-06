@@ -3,8 +3,12 @@ CCP/ /SET.LEVEL = 3
 
 // ---- Desktop ----
 
+sys/ /debug = 2
+
 // Alpha background
-SET/ CPC_GUI.DESKTOP.BACKGROUND = OS/HEXAC/UI/GRAPHICS/BCKGRD/DEFAULT.PNG
+// @#desktop_background open/ OS/HEXAC/SYSTEM/CONFIG/BACKGRD/config.cfg
+
+// SET/ CPC_GUI.DESKTOP.BACKGROUND = %desktop_background%
 
 Declare/ Init_Desktop(obj_name, path, Pos_X, Pos_Y, Size_X, Size_Y) : LEVEL(3)
 

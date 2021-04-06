@@ -40,13 +40,14 @@ set/ os_name = Hexac System
 set/ os_developper = chrapatia
 set/ os_publisher = chrapatia
 set/ os_ver_maj = 1
-set/ os_ver_min = 5
+set/ os_ver_min = 6
 set/ os_ver_patch = 0
 set/ os_dev_stat = Alpha
 
 // Graphic User Interface Configuration
 
-exe/ & OS/HEXAC/UI/ENV_GUI/env_gui.cpc
+@#HexacUI sys/ /processus HexacUIEssential
+cmd/ /pid:%HexacUI% exe/ & OS/HEXAC/UI/ENV_GUI/env_gui.cpc
 sys/ /load-format OS/HEXAC/SYSTEM/FORMATS/HEXACFRM.INI
 set/ SCR_BIT = 24
 sys/ /os:HEXAC
@@ -67,9 +68,10 @@ function/ bootSequence()
 
     if/ "%BOOT_GET_INFORMATION_SETUP%" == "True" then:
 
-        @#SCREEN_RESOLUTION ouvrir/ OS/HEXAC/SYSTEM/CONFIG/SCR_RES/config.cfg
+        @#SCREEN_RESOLUTION_X ouvrir/ OS/HEXAC/SYSTEM/CONFIG/SCR_RES/scrx.cfg
+        @#SCREEN_RESOLUTION_Y ouvrir/ OS/HEXAC/SYSTEM/CONFIG/SCR_RES/scry.cfg
 
-        set/ SCR_RES = %SCREEN_RESOLUTION%
+        set/ SCR_RES = %SCREEN_RESOLUTION_X%x%SCREEN_RESOLUTION_Y%
 
         set/ SCR_IMG_MODE = 2
 
@@ -81,15 +83,19 @@ function/ bootSequence()
 
         sys/ /fileformat-gui-load
 
-        // exe/ & OS/HEXAC/SYS_APPS/LOGIN/login.cpc
+        // @#HexacLogin sys/ /processus HexacSystem_Login
+
+        // cmd/ /PID:%HexacLogin% exe/ & OS/HEXAC/SYS_APPS/LOGIN/login.cpc
 
         // sys/ /debug = 2
 
-        exe/ & OS/HEXAC/UI/TASKBAR/taskbar.cpc
+        @#HexacUITaskBar sys/ /processus HexacSystem_UIEssential_Taskbar
 
-        sys/ /debug = 2
+        cmd/ /PID:%HexacUITaskBar% exe/ & OS/HEXAC/UI/TASKBAR/taskbar.cpc
 
-        set/ MonID_Desktop = /f:Init_desktop(hexacDesktop, C:\CPCDOS\OS\HEXAC\UI\ENV_GUI\DESKTOP.CPC,10, 10, 800, 600)
+        set/ Hexac_Desktop = /f:Init_desktop(hexacDesktop, C:\CPCDOS\OS\HEXAC\SYS_APPS,100, 100, 800, 600)
+
+        refresh/ /all
 
     else:
         
@@ -99,7 +105,9 @@ function/ bootSequence()
 
         iug/
 
-        exe/ & OS/HEXAC/SYSTEM/SETUP/APP/welcome.cpc
+        @#HexacSetup sys/ /processus HexacSystem_FirstStartSetup
+
+        cmd/ /pid:%HexacSetup% exe/ & OS/HEXAC/SYSTEM/SETUP/APP/welcome.cpc
 
     end/ if
 

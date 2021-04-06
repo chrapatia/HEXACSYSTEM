@@ -27,14 +27,16 @@
 // colorCode = 255,193,102
 
 
-set/ posy = /C(%CPC.SCR.Y% - 422)
+// set/ posy = /C(%CPC.SCR.Y% - 31)
+
+ccp/ /set.level = 2
 
 
 window/ menuWindow
     .title = ""
     .parameters = "TYPE:4 CTN:1 OMBRE:0"
     .px = "0"
-    .py = "%posy%"
+    .py = "22"
     .sx = "300"
     .sy = "400"
     .WindowColor = "225,225,225"
@@ -162,33 +164,41 @@ button/ alimentationButton
 end/ button
 
 function/ applicationsButton.Click()
-    exe/ & OS/HEXAC/SYS_APPS/APPS/apps.cpc
-    fermer/ menuWindow
+    ccp/ /set.level = 4
+    @#HexacApps sys/ /processus HexacSystem_UIEssential_SystemApplicationsMenu
+    cmd/ /pid:%HexacApps% exe/ & OS/HEXAC/SYS_APPS/APPS/apps.cpc
+    fermer/ %HexacSysMenu%
 end/ function
 
 function/ documentsButton.Click()
-    // sys/ /debug = 2
-    exe/ & OS/HEXAC/SYS_APPS/FILEEXP/explorer.cpc
-    fermer/ menuWindow
+    ccp/ /set.level = 4
+    @#HexacExplorer sys/ /processus HexacSystem_UIEssential_FileExplorer
+    cmd/ /pid:%HexacExplorer% exe/ & OS/HEXAC/SYS_APPS/FILEEXP/explorer.cpc
+    fermer/ %HexacSysMenu%
 end/ function
 
 function/ gamelauncherButton.Click()
+    ccp/ /set.level = 4
     exe/ & OS/HEXAC/SYS_APPS/GAMELCHR/gamelchr.cpc
-    fermer/ menuWindow
+    fermer/ %HexacSysMenu%
 end/ function
 
 function/ alimentationButton.Click()
+    ccp/ /set.level = 4
     exe/ & OS/HEXAC/SYS_APPS/ALIM/alim.cpc
-    fermer/ menuWindow
+    fermer/ %HexacSysMenu%
 end/ function
 
 function/ settingsButton.Click()
-    exe/ & OS/HEXAC/SYS_APPS/SETTINGS/welcome.cpc
-    fermer/ menuWindow
+    ccp/ /set.level = 4
+    @#HexacSettings sys/ /processus HexacSystem_UIEssential_SystemSettings
+    cmd/ /pid:%HexacSettings% exe/ & OS/HEXAC/SYS_APPS/SETTINGS/welcome.cpc
+    fermer/ %HexacSysMenu%
 end/ function
 
 function/ exitButton.Click()
-    fermer/ menuWindow
+    ccp/ /set.level = 4
+    fermer/ %HexacSysMenu%
 end/ function
 
 

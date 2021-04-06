@@ -141,62 +141,62 @@ end/ button
 
 function/ optionOneButton.Click()
     // sys/ /debug = 2
-    supprimer/ OS/HEXAC/SYSTEM/CONFIG/SCR_RES/config.cfg
-    cmd/ /thread ecrire/ OS/HEXAC/SYSTEM/CONFIG/SCR_RES/config.cfg = 1024x768
+    supprimer/ OS/HEXAC/SYSTEM/CONFIG/SCR_RES/scrx.cfg
+    supprimer/ OS/HEXAC/SYSTEM/CONFIG/SCR_RES/scry.cfg
+    cmd/ /thread ecrire/ OS/HEXAC/SYSTEM/CONFIG/SCR_RES/scrx.cfg = 1024
+    cmd/ /thread ecrire/ OS/HEXAC/SYSTEM/CONFIG/SCR_RES/scry.cfg = 768
     IUG/ /CONSOLE
     SYS/ /OS:HEXAC
-    @#SCREEN_RESOLUTION ouvrir/ OS/HEXAC/SYSTEM/CONFIG/SCR_RES/config.cfg
-    set/ SCR_RES = %SCREEN_RESOLUTION%
+    @#SCREEN_RESOLUTION_X ouvrir/ OS/HEXAC/SYSTEM/CONFIG/SCR_RES/scrx.cfg
+    @#SCREEN_RESOLUTION_Y ouvrir/ OS/HEXAC/SYSTEM/CONFIG/SCR_RES/scry.cfg
+    set/ SCR_RES = %SCREEN_RESOLUTION_X%x%SCREEN_RESOLUTION_Y%
     iug/
-    fermer/ taskbar
-    exe/ & OS/HEXAC/UI/TASKBAR/taskbar.cpc
-    fermer/ screenSettingWindow
-    exe/ & OS/HEXAC/SYS_APPS/SETTTINGS/scrres.cpc
+    refresh/ /all
 end/ function
 
 function/ optionTwoButton.Click()
     // sys/ /debug = 2
-    supprimer/ OS/HEXAC/SYSTEM/CONFIG/SCR_RES/config.cfg
-    cmd/ /thread ecrire/ OS/HEXAC/SYSTEM/CONFIG/SCR_RES/config.cfg = 1280x1024
+    supprimer/ OS/HEXAC/SYSTEM/CONFIG/SCR_RES/scrx.cfg
+    supprimer/ OS/HEXAC/SYSTEM/CONFIG/SCR_RES/scry.cfg
+    cmd/ /thread ecrire/ OS/HEXAC/SYSTEM/CONFIG/SCR_RES/scrx.cfg = 1280
+    cmd/ /thread ecrire/ OS/HEXAC/SYSTEM/CONFIG/SCR_RES/scry.cfg = 1024
     IUG/ /CONSOLE
     SYS/ /OS:HEXAC
-    @#SCREEN_RESOLUTION ouvrir/ OS/HEXAC/SYSTEM/CONFIG/SCR_RES/config.cfg
-    set/ SCR_RES = %SCREEN_RESOLUTION%
+    @#SCREEN_RESOLUTION_X ouvrir/ OS/HEXAC/SYSTEM/CONFIG/SCR_RES/scrx.cfg
+    @#SCREEN_RESOLUTION_Y ouvrir/ OS/HEXAC/SYSTEM/CONFIG/SCR_RES/scry.cfg
+    set/ SCR_RES = %SCREEN_RESOLUTION_X%x%SCREEN_RESOLUTION_Y%
     iug/
-    fermer/ taskbar
-    exe/ & OS/HEXAC/UI/TASKBAR/taskbar.cpc
-    fermer/ screenSettingWindow
-    exe/ & OS/HEXAC/SYS_APPS/SETTTINGS/scrres.cpc
+    refresh/ /all
 end/ function
 
 function/ optionThreeButton.Click()
     // sys/ /debug = 2
-    supprimer/ OS/HEXAC/SYSTEM/CONFIG/SCR_RES/config.cfg
-    cmd/ /thread ecrire/ OS/HEXAC/SYSTEM/CONFIG/SCR_RES/config.cfg = 1280x720
+    supprimer/ OS/HEXAC/SYSTEM/CONFIG/SCR_RES/scrx.cfg
+    supprimer/ OS/HEXAC/SYSTEM/CONFIG/SCR_RES/scry.cfg
+    cmd/ /thread ecrire/ OS/HEXAC/SYSTEM/CONFIG/SCR_RES/scrx.cfg = 1280
+    cmd/ /thread ecrire/ OS/HEXAC/SYSTEM/CONFIG/SCR_RES/scry.cfg = 720
     IUG/ /CONSOLE
     SYS/ /OS:HEXAC
-    @#SCREEN_RESOLUTION ouvrir/ OS/HEXAC/SYSTEM/CONFIG/SCR_RES/config.cfg
-    set/ SCR_RES = %SCREEN_RESOLUTION%
+    @#SCREEN_RESOLUTION_X ouvrir/ OS/HEXAC/SYSTEM/CONFIG/SCR_RES/scrx.cfg
+    @#SCREEN_RESOLUTION_Y ouvrir/ OS/HEXAC/SYSTEM/CONFIG/SCR_RES/scry.cfg
+    set/ SCR_RES = %SCREEN_RESOLUTION_X%x%SCREEN_RESOLUTION_Y%
     iug/
-    fermer/ taskbar
-    exe/ & OS/HEXAC/UI/TASKBAR/taskbar.cpc
-    fermer/ screenSettingWindow
-    exe/ & OS/HEXAC/SYS_APPS/SETTTINGS/scrres.cpc
+    refresh/ /all
 end/ function
 
 function/ optionFourButton.Click()
     // sys/ /debug = 2
-    supprimer/ OS/HEXAC/SYSTEM/CONFIG/SCR_RES/config.cfg
-    cmd/ /thread ecrire/ OS/HEXAC/SYSTEM/CONFIG/SCR_RES/config.cfg = 1920x1080
+    supprimer/ OS/HEXAC/SYSTEM/CONFIG/SCR_RES/scrx.cfg
+    supprimer/ OS/HEXAC/SYSTEM/CONFIG/SCR_RES/scry.cfg
+    cmd/ /thread ecrire/ OS/HEXAC/SYSTEM/CONFIG/SCR_RES/scrx.cfg = 1920
+    cmd/ /thread ecrire/ OS/HEXAC/SYSTEM/CONFIG/SCR_RES/scry.cfg = 1080
     IUG/ /CONSOLE
     SYS/ /OS:HEXAC
-    @#SCREEN_RESOLUTION ouvrir/ OS/HEXAC/SYSTEM/CONFIG/SCR_RES/config.cfg
-    set/ SCR_RES = %SCREEN_RESOLUTION%
+    @#SCREEN_RESOLUTION_X ouvrir/ OS/HEXAC/SYSTEM/CONFIG/SCR_RES/scrx.cfg
+    @#SCREEN_RESOLUTION_Y ouvrir/ OS/HEXAC/SYSTEM/CONFIG/SCR_RES/scry.cfg
+    set/ SCR_RES = %SCREEN_RESOLUTION_X%x%SCREEN_RESOLUTION_Y%
     iug/
-    fermer/ taskbar
-    exe/ & OS/HEXAC/UI/TASKBAR/taskbar.cpc
-    fermer/ screenSettingWindow
-    exe/ & OS/HEXAC/SYS_APPS/SETTTINGS/scrres.cpc
+    refresh/ /all
 end/ function
 
 function/ exitButton.Click()

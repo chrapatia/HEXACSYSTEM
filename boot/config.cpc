@@ -22,7 +22,7 @@ set/ cpc_sys.boot.bootscreen.fps = 10
 
 // [FR] Nombre d'images max
 // [EN] Max number frames
-set/ cpc_sys.boot.bootscreen.size = 7
+set/ cpc_sys.boot.bootscreen.size = 11
 
 
 // [FR] Numero d'image de commencement
@@ -32,7 +32,7 @@ set/ cpc_sys.boot.bootscreen.begin = 0
 
 // [FR] Numero d'image de bouclage
 // [EN] Looping image number
-set/ cpc_sys.boot.bootscreen.loop = 0 
+set/ cpc_sys.boot.bootscreen.loop = 6 
 
 
 

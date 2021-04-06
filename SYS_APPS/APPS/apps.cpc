@@ -24,13 +24,19 @@
 
 // Applications Window
 
+set/ sizex = 240
+set/ sizey = 300
+
+set/ posx = /C(%CPC.SCR.X% / 2) - (%sizex% / 2)
+set/ posy = /C(%CPC.SCR.Y% / 2) - (%sizey% / 2)
+
 window/ appsWindow
     .title = "Applications"
     .parameters = "TYPE:0"
-    .px = "100"
-    .py = "100"
-    .sx = "240"
-    .sy = "300"
+    .px = "%posx%"
+    .py = "%posy%"
+    .sx = "%sizex%"
+    .sy = "%sizey%"
     .WindowColor = "000,000,000"
     .BackColor = "198,198,198"
     .TitleColor = "255,255,255"
